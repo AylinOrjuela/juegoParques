@@ -19,7 +19,7 @@
         android:layout_margin="10dp"/>
     <Button
         android:id="@+id/btnRules"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="@string/btn_rules"
         android:layout_margin="10dp"
@@ -27,15 +27,22 @@
         android:backgroundTint="@color/btn_background"
         android:textStyle="bold"/>
     <Button
-        android:id="@+id/btnPlay"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnCreate"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="@string/btn_play"
+        android:text="@string/btn_create"
         android:layout_margin="10dp"
         android:fontFamily="@font/pixelifysans_regular"
         android:backgroundTint="@color/btn_background"
         android:textStyle="bold"/>
-
-
+    <Button
+        android:id="@+id/btnJoin"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_join"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/pixelifysans_regular"
+        android:backgroundTint="@color/btn_background"
+        android:textStyle="bold"/>
 
 </LinearLayout>
