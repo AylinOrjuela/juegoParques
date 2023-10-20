@@ -12,6 +12,8 @@
     <string name="tv_player">Jugador</string>
     <string name="tv_hall_code">Codigo de sala : </string>
 
+    <!-- Prueba push commit -->
+
     <!-- Game Rules -->
     <string name="tv_game_rules">
         1)Cada jugador inicia con 2 fichas en su base. &#10;
