@@ -10,5 +10,7 @@
 
     <color name="btn_background">#3A72B7</color>
     <color name="background_card_translucent">#80838383</color>
+    <color name="btn_color_player1">#FF0000</color>
+    <color name="btn_color_player2">#FDDC00</color>
 
 </resources>
