@@ -2,29 +2,31 @@
     <string name="app_name">parques</string>
     <string name="tv_main_screen">Parques online</string>
     <string name="btn_rules">Reglas</string>
-    <string name="btn_create">Crear Partida</string>
+    <string name="btn_create">Ir a sala de espera</string>
     <string name="btn_cast">Lanzar Dados</string>
     <string name="btn_main">Pagina Principal</string>
     <string name="btn_join">Unirme a una partida</string>
-    <string name="tv_warning">Advertencia : Para iniciar el juego es necesario contar con dos jugadores</string>
+    <string name="tv_warning">Advertencia : Para iniciar el juego es necesario contar con dos jugadores, el
+    juego iniciara automaticamente al tener dos jugadores en la sala</string>
     <string name="btn_start_game">Iniciar Juego</string>
     <string name="tv_player_name">Nombre Jugador : </string>
-    <string name="tv_player">Jugador</string>
+    <string name="tv_player1">Jugador 1</string>
+    <string name="tv_player2">Jugador 2</string>
     <string name="tv_hall_code">Codigo de sala : </string>
 
     <!-- Prueba push commit -->
 
     <!-- Game Rules -->
     <string name="tv_game_rules">
-        1)Cada jugador inicia con 2 fichas en su base. &#10;
-        2)Se lanzan los dados dando click en el boton "Lanzar". &#10;
-        3)Para poder salir de la base es necesario sacar un par. &#10;
-        4)Al tirar los dados se movera la ficha la cantidad que estos marcan. &#10;
-        5)Si la ficha esta en la base, no se podra mover hasta liberarla. &#10;
-        6)Cada que el jugador saque par podra repetir su turno. &#10;
-        7)Si un jugador cae en tu misma casilla, seras devuelto a tu base. A menos que estes en una casilla segura. &#10;
-        8)Las casillas seguras tienen un color diferente a las casillas convencionales. &#10;
-        9)Cada jugador tiene su meta, marcada con su color, al llegar al final de esta ganará. &#10;
+        1)Cada jugador inicia con 2 fichas en su base. \n
+        2)Se lanzan los dados dando click en el boton "Lanzar". \n
+        3)Para poder salir de la base es necesario sacar un par. \n
+        4)Al tirar los dados se movera la ficha la cantidad que estos marcan. \n
+        5)Si la ficha esta en la base, no se podra mover hasta liberarla. \n
+        6)Cada que el jugador saque par podra repetir su turno. \n
+        7)Si un jugador cae en tu misma casilla, seras devuelto a tu base. A menos que estes en una casilla segura. \n
+        8)Las casillas seguras tienen un color diferente a las casillas convencionales. \n
+        9)Cada jugador tiene su meta, marcada con su color, al llegar al final de esta ganará. \n
     </string>
 
 </resources>
