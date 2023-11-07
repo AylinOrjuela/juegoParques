@@ -9,7 +9,7 @@
     <string name="tv_warning">Advertencia : Para iniciar el juego es necesario contar con dos jugadores, el
     juego iniciara automaticamente al tener dos jugadores en la sala</string>
     <string name="btn_start_game">Iniciar Juego</string>
-    <string name="tv_player_name">Nombre Jugador : </string>
+    <string name="tv_player_name">Estado del jugador : </string>
     <string name="tv_player1">Jugador 1</string>
     <string name="tv_player2">Jugador 2</string>
     <string name="tv_hall_code">Codigo de sala : </string>
