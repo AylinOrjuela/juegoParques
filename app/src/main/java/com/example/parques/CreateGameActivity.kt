@@ -50,7 +50,9 @@ class CreateGameActivity : AppCompatActivity() {
                         aux.EstadoJ1=true
                         firebaseInstance.writeOnFirebase(aux)
                         binding.btnPlayer1.isEnabled = false
+                        binding.btnPlayer1.setBackgroundColor(resources.getColor(R.color.btn_disable))
                         binding.btnPlayer2.isEnabled = false
+                        binding.btnPlayer2.setBackgroundColor(resources.getColor(R.color.btn_disable))
                         id = 1
                         if(binding.tvName1.text == "Conectado" && binding.tvName2.text == "Conectado"){
                             goToBoard(id)
@@ -60,7 +62,9 @@ class CreateGameActivity : AppCompatActivity() {
                         aux.EstadoJ2=true
                         firebaseInstance.writeOnFirebase(aux)
                         binding.btnPlayer2.isEnabled = false
+                        binding.btnPlayer2.setBackgroundColor(resources.getColor(R.color.btn_disable))
                         binding.btnPlayer1.isEnabled = false
+                        binding.btnPlayer1.setBackgroundColor(resources.getColor(R.color.btn_disable))
                         id = 2
                         if(binding.tvName1.text == "Conectado" && binding.tvName2.text == "Conectado"){
                             goToBoard(id)
@@ -95,9 +99,11 @@ class CreateGameActivity : AppCompatActivity() {
 
                     if(binding.tvName1.text == "Conectado"){
                         binding.btnPlayer1.isEnabled = false
+                        binding.btnPlayer1.setBackgroundColor(resources.getColor(R.color.btn_disable))
                     }
                     if(binding.tvName2.text == "Conectado"){
                         binding.btnPlayer2.isEnabled = false
+                        binding.btnPlayer2.setBackgroundColor(resources.getColor(R.color.btn_disable))
                     }
 
                 }
