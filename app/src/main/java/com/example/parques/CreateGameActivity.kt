@@ -1,5 +1,6 @@
 package com.example.parques
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -33,6 +34,12 @@ class CreateGameActivity : AppCompatActivity() {
         }
     }
 
+    private fun goToBoard(id: Int){
+        val intent = Intent(this,BoardGameActivity::class.java)
+        intent.putExtra("id",id)
+        startActivity(intent)
+    }
+
     private fun setPlayer(btn:Int){//Asignar los jugadores
         val postListener = object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -45,12 +52,14 @@ class CreateGameActivity : AppCompatActivity() {
                         binding.btnPlayer1.isEnabled = false
                         binding.btnPlayer2.isEnabled = false
                         id = 1
+                        goToBoard(id)
                     }else if(btn == 2){
                         aux.EstadoJ2=true
                         firebaseInstance.writeOnFirebase(aux)
                         binding.btnPlayer2.isEnabled = false
                         binding.btnPlayer1.isEnabled = false
                         id = 2
+                        goToBoard(id)
                     }
                 }
             }
@@ -69,9 +78,14 @@ class CreateGameActivity : AppCompatActivity() {
                 if (aux != null) {
                     if(aux.EstadoJ1 == true){
                         binding.tvName1.text = "Conectado"
+                    }else if(aux.EstadoJ1 == false){
+                        binding.tvName1.text = "Desconectado"
                     }
+
                     if(aux.EstadoJ2 == true){
                         binding.tvName2.text = "Conectado"
+                    }else if(aux.EstadoJ2 == false){
+                        binding.tvName2.text = "Desconectado"
                     }
 
                     if(binding.tvName1.text == "Conectado"){
