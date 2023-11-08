@@ -52,14 +52,19 @@ class CreateGameActivity : AppCompatActivity() {
                         binding.btnPlayer1.isEnabled = false
                         binding.btnPlayer2.isEnabled = false
                         id = 1
-                        goToBoard(id)
+                        if(binding.tvName1.text == "Conectado" && binding.tvName2.text == "Conectado"){
+                            goToBoard(id)
+                        }
+
                     }else if(btn == 2){
                         aux.EstadoJ2=true
                         firebaseInstance.writeOnFirebase(aux)
                         binding.btnPlayer2.isEnabled = false
                         binding.btnPlayer1.isEnabled = false
                         id = 2
-                        goToBoard(id)
+                        if(binding.tvName1.text == "Conectado" && binding.tvName2.text == "Conectado"){
+                            goToBoard(id)
+                        }
                     }
                 }
             }
