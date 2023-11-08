@@ -5,11 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.parques.databinding.ActivityCreateGameBinding
-import com.google.firebase.Firebase
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.getValue
 
 
 class CreateGameActivity : AppCompatActivity() {
@@ -21,30 +19,41 @@ class CreateGameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.tvName1.text = "Desconectado"
-        binding.tvName2.text = "Desconectado"
         firebaseInstance = FirebaseInstance(this)
+        initListeners()
 
-        setUpListeners()
     }
 
-    private fun setUpListeners() {
-        val postListener = object:ValueEventListener{
+    private fun initListeners(){
+        binding.btnPlayer1.setOnClickListener {
+            setUpListeners(1)
+        }
+        binding.btnPlayer2.setOnClickListener {
+            setUpListeners(2)
+        }
+    }
+
+    private fun setUpListeners(btn:Int) {
+        val postListener = object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val data = getCleanSnapshot(snapshot)
                 var aux = data?.second
                 if (aux != null) {
-                    if (aux.EstadoJ1 == false){
-                        id = 1
-                        binding.tvName1.text = "Conectado"
-                        aux.EstadoJ1 = true
+                    if(btn==1){
+                        aux.EstadoJ1=true
                         firebaseInstance.writeOnFirebase(aux)
-                    }else if (aux.EstadoJ2 == false){
-                            id = 2
-                            binding.tvName2.text = "Conectado"
-                            aux.EstadoJ2 = true
-                            firebaseInstance.writeOnFirebase(aux)
-                        }
+                        binding.btnPlayer1.isEnabled = false
+                        binding.btnPlayer2.isEnabled = false
+                        binding.tvName1.text = "Conectado"
+                        id = 1
+                    }else if(btn == 2){
+                        aux.EstadoJ2=true
+                        firebaseInstance.writeOnFirebase(aux)
+                        binding.btnPlayer2.isEnabled = false
+                        binding.btnPlayer1.isEnabled = false
+                        binding.tvName2.text = "Conectado"
+                        id = 2
+                    }
                 }
             }
             override fun onCancelled(error: DatabaseError) {
@@ -63,6 +72,4 @@ class CreateGameActivity : AppCompatActivity() {
 
         return Pair(partidaKey!!,partidaValue!!)
     }
-
-
 }

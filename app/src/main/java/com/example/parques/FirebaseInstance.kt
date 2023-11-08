@@ -16,15 +16,15 @@ class FirebaseInstance(context: Context) {
     }
 
     fun writeOnFirebase(game:partida) {
-        myRef.setValue(getGenericPartidaItem(game.EstadoJ1, game.EstadoJ2, game.EstadoPartida, game.PosJ1, game.PosJ2, game.TurnoJugador))
+        myRef.setValue(getGenericPartidaItem(game.EstadoJ1, game.EstadoJ2, game.EstadoPartida, game.PosJ1, game.PosJ2, game.TurnoJugador, game.ContJugadores))
     }
 
     fun setupDatabaseListener(postListener: ValueEventListener) {
         dataBase.reference.addValueEventListener(postListener)
     }
 
-    private fun getGenericPartidaItem(ej1:Boolean, ej2:Boolean, estadop:String, posj1:String, posj2:String, turnoj:Boolean): partida{
-        val partida = partida(ej1, ej2,estadop,posj1,posj2,turnoj)
+    private fun getGenericPartidaItem(ej1:Boolean, ej2:Boolean, estadop:String, posj1:String, posj2:String, turnoj:Boolean,ContJugadores:Int): partida{
+        val partida = partida(ej1, ej2,estadop,posj1,posj2,turnoj,ContJugadores)
         return partida
     }
 }

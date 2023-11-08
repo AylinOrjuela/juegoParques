@@ -5,25 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/dados"
-    tools:context=".CreateGameActivity"
-    android:orientation="vertical"
     android:gravity="center|top"
+    android:orientation="vertical"
+    android:paddingHorizontal="15dp"
     android:paddingVertical="30dp"
-    android:paddingHorizontal="15dp">
+    tools:context=".CreateGameActivity">
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/background_card_translucent"
         android:layout_margin="10dp"
+        app:cardBackgroundColor="@color/background_card_translucent"
         app:cardCornerRadius="25dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -38,6 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -53,9 +54,9 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:fontFamily="@font/pixelifysans_regular"
-                    tools:text="Juanito Lopez "
                     android:textColor="@color/white"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    tools:text="Juanito Lopez " />
             </LinearLayout>
 
             <TextView
@@ -71,6 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -86,9 +88,9 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:fontFamily="@font/pixelifysans_regular"
-                    tools:text="Pablito Ruiz "
                     android:textColor="@color/white"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    tools:text="Pablito Ruiz " />
             </LinearLayout>
 
         </LinearLayout>
@@ -98,10 +100,38 @@
     <TextView
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
         android:fontFamily="@font/pixelifysans_medium"
         android:text="@string/tv_warning"
-        android:textSize="20sp"
-        />
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="15dp"
+        android:fontFamily="@font/pixelifysans_regular"
+        android:text="Elija el jugador que desea ser"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnPlayer1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="15dp"
+        android:backgroundTint="@color/btn_color_player1"
+        android:text="@string/tv_player1"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnPlayer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="15dp"
+        android:backgroundTint="@color/btn_color_player2"
+        android:text="@string/tv_player2"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
 
 </LinearLayout>
