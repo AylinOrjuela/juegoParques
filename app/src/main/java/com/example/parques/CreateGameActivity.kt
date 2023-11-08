@@ -21,17 +21,15 @@ class CreateGameActivity : AppCompatActivity() {
         setContentView(binding.root)
         firebaseInstance = FirebaseInstance(this)
         initListeners()
-
+        setUpListeners()
     }
 
     private fun initListeners(){
         binding.btnPlayer1.setOnClickListener {
             setPlayer(1)
-            setUpListeners()
         }
         binding.btnPlayer2.setOnClickListener {
             setPlayer(2)
-            setUpListeners()
         }
     }
 
@@ -75,6 +73,14 @@ class CreateGameActivity : AppCompatActivity() {
                     if(aux.EstadoJ2 == true){
                         binding.tvName2.text = "Conectado"
                     }
+
+                    if(binding.tvName1.text == "Conectado"){
+                        binding.btnPlayer1.isEnabled = false
+                    }
+                    if(binding.tvName2.text == "Conectado"){
+                        binding.btnPlayer2.isEnabled = false
+                    }
+
                 }
             }
             override fun onCancelled(error: DatabaseError) {
