@@ -17,14 +17,18 @@ import kotlin.random.Random
 class BoardGameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBoardGameBinding
     private lateinit var firebaseInstance: FirebaseInstance
-    private val extra = intent.extras
+    private var id:Int = 0
     private var par:Boolean = false
-    val id = extra?.getInt("id")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBoardGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        var extra = intent.extras
+        id = extra?.getInt("id")!!
+
         firebaseInstance = FirebaseInstance(this)
+
         initListener()
         title()
         enabledDice()
@@ -93,14 +97,6 @@ class BoardGameActivity : AppCompatActivity() {
     }
 
     private fun play(){
-
-        var botonRojo = Button(this)
-        botonRojo.setBackgroundColor(resources.getColor(R.color.btn_color_player1))
-        val botonR = (botonRojo.background as? ColorDrawable)?.color
-        var botonAmarillo = Button(this)
-        botonAmarillo.setBackgroundColor(resources.getColor(R.color.btn_color_player2))
-        val botonA = (botonAmarillo.background as? ColorDrawable)?.color
-
         var recorrido: Int = dice()
 
         val postListener = object: ValueEventListener {
@@ -111,7 +107,7 @@ class BoardGameActivity : AppCompatActivity() {
                 if(aux!= null){
                     aux.TurnoJugador
                     if(id == 1 && aux.TurnoJugador == true || id == 2 && aux.TurnoJugador == false){
-                        if (par == true && binding.btnPlayer1Home.backgroundTintList?.defaultColor == botonR && id == 1){
+                        if (par == true && id == 1){
                             binding.btn1.setBackgroundColor(resources.getColor(R.color.btn_color_player1))
                         }
                     }
@@ -126,6 +122,15 @@ class BoardGameActivity : AppCompatActivity() {
         }
 
         firebaseInstance.setupDatabaseListener(postListener)
+    }
+
+    private fun color(){
+        var botonRojo = Button(this)
+        botonRojo.setBackgroundColor(resources.getColor(R.color.btn_color_player1))
+        val botonR = (botonRojo.background as? ColorDrawable)?.color
+        var botonAmarillo = Button(this)
+        botonAmarillo.setBackgroundColor(resources.getColor(R.color.btn_color_player2))
+        val botonA = (botonAmarillo.background as? ColorDrawable)?.color
     }
 
     private fun getCleanSnapshot(snapshot: DataSnapshot): Pair<String,partida>?{
