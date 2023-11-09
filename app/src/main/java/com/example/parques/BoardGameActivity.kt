@@ -30,7 +30,6 @@ class BoardGameActivity : AppCompatActivity() {
         firebaseInstance = FirebaseInstance(this)
         initListener()
         title()
-        enabledDice()
     }
 
     private fun initListener() {
@@ -66,26 +65,14 @@ class BoardGameActivity : AppCompatActivity() {
         return dado2 + dado1
     }
 
-    private fun enabledDice() {
-        val postListener = object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val data = getCleanSnapshot(snapshot)
-                var aux = data?.second
-                if (aux != null) {
-                    if (id == 1) {
-                        binding.btnCast.isEnabled = aux.TurnoJugador
-                    } else if (id == 2) {
-                        binding.btnCast.isEnabled = !aux.TurnoJugador
-                    }
-                }
-            }
-            override fun onCancelled(error: DatabaseError) {
-                Log.i("Error onCancelled", error.details)
-            }
+    private fun enabledDice(aux:Boolean) {
+        if (id == 1) {
+            binding.btnCast.isEnabled = aux
+        } else if (id == 2) {
+            binding.btnCast.isEnabled = !aux
         }
-        firebaseInstance.setupDatabaseListener(postListener)
     }
-
+//asdasdsa
     private fun play() {
         var recorrido: Int = dice() //Obteniendo el valor a recorrer del jugador
 
@@ -119,7 +106,14 @@ class BoardGameActivity : AppCompatActivity() {
         }
         firebaseInstance.setupDatabaseListener(postListener)
 
-        prueba.TurnoJugador = !prueba.TurnoJugador
+
+        if(id == 1 && prueba.TurnoJugador == true){
+            prueba.TurnoJugador = false
+        }else if(id == 2 && prueba.TurnoJugador == false){
+            prueba.TurnoJugador = true
+        }
+
+        //enabledDice(prueba.TurnoJugador)
 
         firebaseInstance.writeOnFirebase(prueba)
         pares(prueba)
