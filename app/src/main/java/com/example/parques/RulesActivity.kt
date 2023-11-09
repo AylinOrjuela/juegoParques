@@ -15,6 +15,7 @@ class RulesActivity : AppCompatActivity() {
         binding.btnPlay.setOnClickListener {
             val intent = Intent(this,MainScreen::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }

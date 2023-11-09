@@ -25,10 +25,12 @@ class MainScreen : AppCompatActivity() {
         binding.btnRules.setOnClickListener {
             val intent = Intent(this, RulesActivity::class.java)
             startActivity(intent)
+            finish()
         }
         binding.btnCreate.setOnClickListener {
             val intent = Intent(this, CreateGameActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }

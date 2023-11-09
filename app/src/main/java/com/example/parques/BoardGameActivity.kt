@@ -28,6 +28,7 @@ class BoardGameActivity : AppCompatActivity() {
         id = extra?.getInt("id")!!
 
         firebaseInstance = FirebaseInstance(this)
+        enabledDice()
         initListener()
         title()
     }
@@ -65,12 +66,25 @@ class BoardGameActivity : AppCompatActivity() {
         return dado2 + dado1
     }
 
-    private fun enabledDice(aux:Boolean) {
-        if (id == 1) {
-            binding.btnCast.isEnabled = aux
-        } else if (id == 2) {
-            binding.btnCast.isEnabled = !aux
+    private fun enabledDice() {
+        val postListener = object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val data = getCleanSnapshot(snapshot)
+                var aux = data?.second
+                if (aux != null) {
+                    if (id == 1) {
+                        binding.btnCast.isEnabled = aux.TurnoJugador
+                    } else if (id == 2) {
+                        binding.btnCast.isEnabled = !aux.TurnoJugador
+                    }
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.i("Error onCancelled", error.details)
+            }
         }
+        firebaseInstance.setupDatabaseListener(postListener)
+
     }
 //asdasdsa
     private fun play() {
@@ -106,14 +120,14 @@ class BoardGameActivity : AppCompatActivity() {
         }
         firebaseInstance.setupDatabaseListener(postListener)
 
-
+        prueba.EstadoJ1 = true
+        prueba.EstadoJ2 = true
         if(id == 1 && prueba.TurnoJugador == true){
             prueba.TurnoJugador = false
-        }else if(id == 2 && prueba.TurnoJugador == false){
+        }
+        if(id == 2 && prueba.TurnoJugador == false){
             prueba.TurnoJugador = true
         }
-
-        //enabledDice(prueba.TurnoJugador)
 
         firebaseInstance.writeOnFirebase(prueba)
         pares(prueba)

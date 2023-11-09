@@ -38,6 +38,7 @@ class CreateGameActivity : AppCompatActivity() {
         val intent = Intent(this,BoardGameActivity::class.java)
         intent.putExtra("id",id)
         startActivity(intent)
+        finish()
     }
 
     private fun setPlayer(btn:Int){//Asignar los jugadores
