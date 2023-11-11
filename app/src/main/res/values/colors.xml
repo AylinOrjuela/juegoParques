@@ -13,5 +13,6 @@
     <color name="btn_color_player1">#FF0000</color>
     <color name="btn_color_player2">#FDDC00</color>
     <color name="btn_disable">#595959</color>
+    <color name="transparent">#00FFFFFF</color>
 
 </resources>

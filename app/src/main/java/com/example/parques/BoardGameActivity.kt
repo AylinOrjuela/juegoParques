@@ -27,7 +27,11 @@ class BoardGameActivity : AppCompatActivity() {
         var extra = intent.extras
         id = extra?.getInt("id")!!
 
+        binding.btnPlayer1Home.setBackgroundColor(Color.RED)
+        binding.btnPlayer2Home.setBackgroundColor(Color.YELLOW)
+
         firebaseInstance = FirebaseInstance(this)
+
         enabledDice()
         initListener()
         title()
@@ -67,6 +71,7 @@ class BoardGameActivity : AppCompatActivity() {
     }
 
     private fun enabledDice() {
+
         val postListener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val data = getCleanSnapshot(snapshot)
@@ -88,12 +93,22 @@ class BoardGameActivity : AppCompatActivity() {
 
     }
 
+    private fun start(){
+        if(id == 1 && par){
+            binding.btnStartPlayer1.setBackgroundColor(Color.RED)
+            binding.btnPlayer1Home.setBackgroundColor(Color.TRANSPARENT)
+        }else if(id == 2 && par){
+            binding.btnStartPlayer2.setBackgroundColor(Color.YELLOW)
+            binding.btnPlayer2Home.setBackgroundColor(Color.TRANSPARENT)
+        }
+    }
+
     //asdasdsa
     private fun play() {
         var recorrido: Int = dice() //Obteniendo el valor a recorrer del jugador
 
         turn() //Habilitamos o deshabilitamos el boton para saber de que jugador es el turno
-
+        start()
     }
 
     private fun pares(p: partida) {
