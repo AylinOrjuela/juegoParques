@@ -41,25 +41,13 @@
             app:layout_constraintVertical_bias="0.01" />
 
         <Button
-            android:id="@+id/btn6P2Secure"
+            android:id="@+id/btn36"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.48"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.01" />
-
-        <Button
-            android:id="@+id/btn6P1Secure"
-            android:layout_width="15dp"
-            android:layout_height="20dp"
-            android:backgroundTint="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.52"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.01" />
@@ -149,49 +137,25 @@
             app:layout_constraintVertical_bias="0.135" />
 
         <Button
-            android:id="@+id/btn7P1Secure"
+            android:id="@+id/btn41"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.38"
+            app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.175" />
 
         <Button
-            android:id="@+id/btn7P2Secure"
+            android:id="@+id/btn31"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.42"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.175" />
-
-        <Button
-            android:id="@+id/btn5P2Secure"
-            android:layout_width="15dp"
-            android:layout_height="20dp"
-            android:backgroundTint="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.58"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.175" />
-
-        <Button
-            android:id="@+id/btn5P1Secure"
-            android:layout_width="15dp"
-            android:layout_height="20dp"
-            android:backgroundTint="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.62"
+            app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.175" />
@@ -282,25 +246,13 @@
             app:layout_constraintVertical_bias="0.99" />
 
         <Button
-            android:id="@+id/btn1P1Secure"
+            android:id="@+id/btn2"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.48"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.99" />
-
-        <Button
-            android:id="@+id/btn1P2Secure"
-            android:layout_width="15dp"
-            android:layout_height="20dp"
-            android:backgroundTint="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.52"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.99" />
@@ -390,47 +342,25 @@
             app:layout_constraintVertical_bias="0.86" />
 
         <Button
-            android:layout_width="15dp"
-            android:layout_height="20dp"
+            android:id="@+id/btn65"
+            android:layout_width="17dp"
+            android:layout_height="23dp"
             android:backgroundTint="@android:color/transparent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.38"
+            app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.82" />
 
         <Button
+            android:id="@+id/btn7"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.42"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.82" />
-
-        <Button
-            android:id="@+id/btn2P1Secure"
-            android:layout_width="15dp"
-            android:layout_height="20dp"
-            android:backgroundTint="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.58"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.82" />
-
-        <Button
-            android:id="@+id/btn2P2Secure"
-            android:layout_width="15dp"
-            android:layout_height="20dp"
-            android:backgroundTint="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.62"
+            app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.82" />
@@ -523,7 +453,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn9P1Secure"
+            android:id="@+id/btn53"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -533,20 +463,7 @@
             app:layout_constraintHorizontal_bias="0.01"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.48" />
-
-        <Button
-            android:id="@+id/btn9P2Secure"
-            android:layout_width="15dp"
-            android:layout_height="20dp"
-            android:backgroundTint="@android:color/transparent"
-            android:rotation="90"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.01"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.52" />
+            app:layout_constraintVertical_bias="0.5" />
 
         <Button
             android:id="@+id/btn54"
@@ -679,7 +596,7 @@
             app:layout_constraintVertical_bias="0.601" />
 
         <Button
-            android:id="@+id/btn8P1Secure"
+            android:id="@+id/btn48"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -689,20 +606,7 @@
             app:layout_constraintHorizontal_bias="0.179"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.38" />
-
-        <Button
-            android:id="@+id/btn8P2Secure"
-            android:layout_width="15dp"
-            android:layout_height="20dp"
-            android:backgroundTint="@android:color/transparent"
-            android:rotation="90"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.179"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.42" />
+            app:layout_constraintVertical_bias="0.401" />
 
         <Button
             android:id="@+id/btn4FinalPlayer1"
@@ -718,7 +622,7 @@
             app:layout_constraintVertical_bias="0.5" />
 
         <Button
-            android:id="@+id/btnStartPlayer1"
+            android:id="@+id/btn58"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -875,7 +779,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn4P2Secure"
+            android:id="@+id/btn19"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -885,20 +789,7 @@
             app:layout_constraintHorizontal_bias="0.99"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.48" />
-
-        <Button
-            android:id="@+id/btn4P1Secure"
-            android:layout_width="15dp"
-            android:layout_height="20dp"
-            android:backgroundTint="@android:color/transparent"
-            android:rotation="90"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.99"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.52" />
+            app:layout_constraintVertical_bias="0.5" />
 
         <Button
             android:id="@+id/btn18"
@@ -1031,7 +922,7 @@
             app:layout_constraintVertical_bias="0.601" />
 
         <Button
-            android:id="@+id/btnStartPlayer2"
+            android:id="@+id/btn24"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -1057,7 +948,7 @@
             app:layout_constraintVertical_bias="0.5" />
 
         <Button
-            android:id="@+id/btn3P2Secure"
+            android:id="@+id/btn14"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -1067,20 +958,7 @@
             app:layout_constraintHorizontal_bias="0.822"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.58" />
-
-        <Button
-            android:id="@+id/btn3P1Secure"
-            android:layout_width="15dp"
-            android:layout_height="20dp"
-            android:backgroundTint="@android:color/transparent"
-            android:rotation="90"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.822"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.62" />
+            app:layout_constraintVertical_bias="0.601" />
 
         <Button
             android:id="@+id/btn25"

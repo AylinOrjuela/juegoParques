@@ -95,10 +95,10 @@ class BoardGameActivity : AppCompatActivity() {
 
     private fun start(){
         if(id == 1 && par){
-            binding.btnStartPlayer1.setBackgroundColor(Color.RED)
+            binding.btn58.setBackgroundColor(Color.RED)
             binding.btnPlayer1Home.setBackgroundColor(Color.TRANSPARENT)
         }else if(id == 2 && par){
-            binding.btnStartPlayer2.setBackgroundColor(Color.YELLOW)
+            binding.btn24.setBackgroundColor(Color.YELLOW)
             binding.btnPlayer2Home.setBackgroundColor(Color.TRANSPARENT)
         }
     }
@@ -114,9 +114,9 @@ class BoardGameActivity : AppCompatActivity() {
     private fun pares(p: partida) {
         if (par == true && id == 1 || par == true && id == 2) {
             if (id == 1) {
-                binding.btnStartPlayer1.setBackgroundColor(resources.getColor(R.color.btn_color_player1))
+                binding.btn58.setBackgroundColor(resources.getColor(R.color.btn_color_player1))
             } else if (id == 2) {
-                binding.btnStartPlayer2.setBackgroundColor(resources.getColor(R.color.btn_color_player2))
+                binding.btn24.setBackgroundColor(resources.getColor(R.color.btn_color_player2))
             }
         }
     }
