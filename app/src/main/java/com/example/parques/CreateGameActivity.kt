@@ -23,6 +23,7 @@ class CreateGameActivity : AppCompatActivity() {
         firebaseInstance = FirebaseInstance(this)
         initListeners()
         setUpListeners()
+        binding.goToBoard.isEnabled = false
     }
 
     private fun initListeners(){
@@ -32,13 +33,17 @@ class CreateGameActivity : AppCompatActivity() {
         binding.btnPlayer2.setOnClickListener {
             setPlayer(2)
         }
+        binding.goToBoard.setOnClickListener {
+            if(binding.tvName1.text == "Conectado" && binding.tvName2.text == "Conectado"){
+                goToBoard(id)
+            }
+        }
     }
 
     private fun goToBoard(id: Int){
         val intent = Intent(this,BoardGameActivity::class.java)
         intent.putExtra("id",id)
         startActivity(intent)
-        finish()
     }
 
     private fun setPlayer(btn:Int){//Asignar los jugadores
@@ -49,28 +54,26 @@ class CreateGameActivity : AppCompatActivity() {
                 if (aux != null) {
                     if(btn==1){
                         aux.EstadoJ1=true
-                        firebaseInstance.writeOnFirebase(aux)
+                        firebaseInstance.updateJ1(aux.EstadoJ1)
                         binding.btnPlayer1.isEnabled = false
                         binding.btnPlayer1.setBackgroundColor(resources.getColor(R.color.btn_disable))
                         binding.btnPlayer2.isEnabled = false
                         binding.btnPlayer2.setBackgroundColor(resources.getColor(R.color.btn_disable))
                         id = 1
-                        if(binding.tvName1.text == "Conectado" && binding.tvName2.text == "Conectado"){
-                            goToBoard(id)
-                        }
-
                     }else if(btn == 2){
                         aux.EstadoJ2=true
-                        firebaseInstance.writeOnFirebase(aux)
+                        firebaseInstance.updateJ2(aux.EstadoJ2)
                         binding.btnPlayer2.isEnabled = false
                         binding.btnPlayer2.setBackgroundColor(resources.getColor(R.color.btn_disable))
                         binding.btnPlayer1.isEnabled = false
                         binding.btnPlayer1.setBackgroundColor(resources.getColor(R.color.btn_disable))
                         id = 2
-                        if(binding.tvName1.text == "Conectado" && binding.tvName2.text == "Conectado"){
-                            goToBoard(id)
-                        }
                     }
+
+                    if(binding.tvName1.text == "Conectado" && binding.tvName2.text == "Conectado"){
+                        binding.goToBoard.isEnabled = true
+                    }
+
                 }
             }
             override fun onCancelled(error: DatabaseError) {
@@ -78,6 +81,7 @@ class CreateGameActivity : AppCompatActivity() {
             }
         }
         firebaseInstance.setupDatabaseListener(postListener)
+
     }
 
     private fun setUpListeners() {//Mostrar los jugadores

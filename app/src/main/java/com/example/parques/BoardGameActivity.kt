@@ -79,6 +79,7 @@ class BoardGameActivity : AppCompatActivity() {
                     }
                 }
             }
+
             override fun onCancelled(error: DatabaseError) {
                 Log.i("Error onCancelled", error.details)
             }
@@ -86,7 +87,8 @@ class BoardGameActivity : AppCompatActivity() {
         firebaseInstance.setupDatabaseListener(postListener)
 
     }
-//asdasdsa
+
+    //asdasdsa
     private fun play() {
         var recorrido: Int = dice() //Obteniendo el valor a recorrer del jugador
 
@@ -114,22 +116,21 @@ class BoardGameActivity : AppCompatActivity() {
                     prueba = aux
                 }
             }
+
             override fun onCancelled(error: DatabaseError) {
                 Log.i("Error onCancelled", error.details)
             }
         }
         firebaseInstance.setupDatabaseListener(postListener)
 
-        prueba.EstadoJ1 = true
-        prueba.EstadoJ2 = true
-        if(id == 1 && prueba.TurnoJugador == true){
+        if (id == 1 && prueba.TurnoJugador == true) {
             prueba.TurnoJugador = false
         }
-        if(id == 2 && prueba.TurnoJugador == false){
+        if (id == 2 && prueba.TurnoJugador == false) {
             prueba.TurnoJugador = true
         }
 
-        firebaseInstance.writeOnFirebase(prueba)
+        firebaseInstance.updateTurno(prueba.TurnoJugador)
         pares(prueba)
 
     }
@@ -150,3 +151,4 @@ class BoardGameActivity : AppCompatActivity() {
         return Pair(partidaKey!!, partidaValue!!)
     }
 }
+

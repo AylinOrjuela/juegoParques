@@ -7,5 +7,4 @@ data class partida(
     var PosJ1:String = "home",
     var PosJ2:String = "home",
     var TurnoJugador:Boolean = true,
-    var ContJugadores:Int = 2 //Cupos para jugadores en la sala
     )

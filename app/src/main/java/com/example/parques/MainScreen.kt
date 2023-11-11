@@ -18,7 +18,12 @@ class MainScreen : AppCompatActivity() {
         setContentView(binding.root)
         firebaseInstance = FirebaseInstance(this)
         val reset = partida()
-        firebaseInstance.writeOnFirebase(reset)
+        firebaseInstance.updateJ1(false)
+        firebaseInstance.updateJ2(false)
+        firebaseInstance.updateEstadoPartida("esperando")
+        firebaseInstance.updatePosJ1("home")
+        firebaseInstance.updatePosJ2("home")
+        firebaseInstance.updateTurno(true)
         initListeners()
     }
     private fun initListeners() {

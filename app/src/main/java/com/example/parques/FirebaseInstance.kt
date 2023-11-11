@@ -15,16 +15,35 @@ class FirebaseInstance(context: Context) {
         FirebaseApp.initializeApp(context)
     }
 
-    fun writeOnFirebase(game:partida) {
-        myRef.setValue(getGenericPartidaItem(game.EstadoJ1, game.EstadoJ2, game.EstadoPartida, game.PosJ1, game.PosJ2, game.TurnoJugador, game.ContJugadores))
-    }
-
     fun setupDatabaseListener(postListener: ValueEventListener) {
         dataBase.reference.addValueEventListener(postListener)
     }
 
-    private fun getGenericPartidaItem(ej1:Boolean, ej2:Boolean, estadop:String, posj1:String, posj2:String, turnoj:Boolean,ContJugadores:Int): partida{
-        val partida = partida(ej1, ej2,estadop,posj1,posj2,turnoj,ContJugadores)
+    fun singleValueEventListener(postListener: ValueEventListener){
+        dataBase.reference.addListenerForSingleValueEvent(postListener)
+    }
+
+    private fun getGenericPartidaItem(ej1:Boolean, ej2:Boolean, estadop:String, posj1:String, posj2:String, turnoj:Boolean): partida{
+        val partida = partida(ej1, ej2,estadop,posj1,posj2,turnoj)
         return partida
+    }
+
+    fun updateJ1(estado:Boolean){
+        myRef.child("estadoJ1").setValue(estado)
+    }
+    fun updateJ2(estado:Boolean){
+        myRef.child("estadoJ2").setValue(estado)
+    }
+    fun updateEstadoPartida(estado:String){
+        myRef.child("estadoPartida").setValue(estado)
+    }
+    fun updatePosJ1(posicion:String){
+        myRef.child("posJ1").setValue(posicion)
+    }
+    fun updatePosJ2(posicion:String){
+        myRef.child("posJ2").setValue(posicion)
+    }
+    fun updateTurno(turno: Boolean){
+        myRef.child("turnoJugador").setValue(turno)
     }
 }
