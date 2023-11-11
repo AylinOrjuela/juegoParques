@@ -1092,7 +1092,7 @@
 
 
         <Button
-            android:id="@+id/btnPlayer2Home"
+            android:id="@+id/btnPlayer2Home0"
             android:layout_width="25dp"
             android:layout_height="30dp"
             android:backgroundTint="@android:color/transparent"
@@ -1105,7 +1105,7 @@
             />
 
         <Button
-            android:id="@+id/btnPlayer1Home"
+            android:id="@+id/btnPlayer1Home0"
             android:layout_width="25dp"
             android:layout_height="30dp"
             android:backgroundTint="@android:color/transparent"

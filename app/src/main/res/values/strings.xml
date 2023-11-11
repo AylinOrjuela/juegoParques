@@ -18,15 +18,14 @@
 
     <!-- Game Rules -->
     <string name="tv_game_rules">
-        1)Cada jugador inicia con 2 fichas en su base. \n
+        1)Cada jugador inicia con 1 ficha en su base. \n
         2)Se lanzan los dados dando click en el boton "Lanzar". \n
         3)Para poder salir de la base es necesario sacar un par. \n
         4)Al tirar los dados se movera la ficha la cantidad que estos marcan. \n
         5)Si la ficha esta en la base, no se podra mover hasta liberarla. \n
-        6)Cada que el jugador saque par podra repetir su turno. \n
-        7)Si un jugador cae en tu misma casilla, seras devuelto a tu base. A menos que estes en una casilla segura. \n
-        8)Las casillas seguras tienen un color diferente a las casillas convencionales. \n
-        9)Cada jugador tiene su meta, marcada con su color, al llegar al final de esta ganará. \n
+        6)Si un jugador cae en tu misma casilla, seras devuelto a tu base. A menos que estes en una casilla segura. \n
+        7)Las casillas seguras tienen un color diferente a las casillas convencionales. \n
+        8)Cada jugador tiene su meta, marcada con su color, el que llegue primero a esta ganará. \n
     </string>
 
 </resources>
