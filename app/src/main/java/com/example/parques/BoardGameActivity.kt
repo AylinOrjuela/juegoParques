@@ -20,6 +20,7 @@ class BoardGameActivity : AppCompatActivity() {
     private var par: Boolean = false
     private lateinit var listaBotones: MutableList<Button>
     private var posicion: String = ""
+    private var inicio: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -98,30 +99,32 @@ class BoardGameActivity : AppCompatActivity() {
 
     }
 
-    private fun start(){
-        if(id == 1 && par){
-            binding.btn58.setBackgroundColor(Color.RED)
+    private fun start() {
+        if (id == 1 && par) {
+            firebaseInstance.updatePosJ1("btn58")
             binding.btnPlayer1Home0.setBackgroundColor(Color.TRANSPARENT)
-        }else if(id == 2 && par){
-            binding.btn24.setBackgroundColor(Color.YELLOW)
+        } else if (id == 2 && par) {
+            firebaseInstance.updatePosJ2("btn24")
             binding.btnPlayer2Home0.setBackgroundColor(Color.TRANSPARENT)
         }
     }
 
-    //asdasdsa
     private fun play() {
         var recorrido: Int = dice() //Obteniendo el valor a recorrer del jugador
 
         turn() //Habilitamos o deshabilitamos el boton para saber de que jugador es el turno
         start()
+        moveToken(recorrido)
     }
 
     private fun pares(p: partida) {
         if (par == true && id == 1 || par == true && id == 2) {
             if (id == 1) {
                 binding.btn58.setBackgroundColor(resources.getColor(R.color.btn_color_player1))
+                inicio = true
             } else if (id == 2) {
                 binding.btn24.setBackgroundColor(resources.getColor(R.color.btn_color_player2))
+                inicio = true
             }
         }
     }
@@ -162,7 +165,7 @@ class BoardGameActivity : AppCompatActivity() {
         return Pair(partidaKey!!, partidaValue!!)
     }
 
-    private fun createButtonList(): MutableList<Button>{
+    private fun createButtonList(): MutableList<Button> {
         val lista = mutableListOf<Button>()
         val btn1 = binding.btn1
         val btn2 = binding.btn2
@@ -233,7 +236,7 @@ class BoardGameActivity : AppCompatActivity() {
         val btn67 = binding.btn67
         val btn68 = binding.btn68
 
-       lista.add(btn1)
+        lista.add(btn1)
         lista.add(btn2)
         lista.add(btn3)
         lista.add(btn4)
@@ -305,7 +308,7 @@ class BoardGameActivity : AppCompatActivity() {
         return lista
     }
 
-    private fun route (){
+    private fun route() {
         val postListener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val data = getCleanSnapshot(snapshot)
@@ -327,28 +330,36 @@ class BoardGameActivity : AppCompatActivity() {
         }
         firebaseInstance.setupDatabaseListener(postListener)
     }
-    private fun getPosPlayer(){
-        if(posicion == "home" && id==1){
-            binding.btnPlayer1Home0.setBackgroundColor(Color.RED)
-        }else if(posicion == "home" && id ==2){
-            binding.btnPlayer2Home0.setBackgroundColor(Color.YELLOW)
-        }else {
+
+    private fun getPosPlayer() {
+        if (posicion == "home" && id == 1) {
+
+        } else if (posicion == "home" && id == 2) {
+
+        } else {
 
             val regex = "([a-zA-Z]+)(\\d+)".toRegex()
             val matchResult = regex.find(posicion)
 
-            if (matchResult != null){
+            if (matchResult != null) {
                 val (letras, numero) = matchResult.destructured
                 val Posicion = numero.toInt()
-                if(id == 1){
-                    listaBotones[Posicion-1].setBackgroundColor(Color.RED)
-                }else if(id == 2){
-                    listaBotones[Posicion-1].setBackgroundColor(Color.YELLOW)
+                if (id == 1) {
+                    listaBotones[Posicion - 1].setBackgroundColor(Color.RED)
+                } else if (id == 2) {
+                    listaBotones[Posicion - 1].setBackgroundColor(Color.YELLOW)
                 }
             }
         }
     }
 
+    private fun moveToken(num: Int){//recorrido
+        if (id == 1 && inicio == true){
+            firebaseInstance.updatePosJ1("btn$num")
+        }else if(id == 2 && inicio == true){
+            firebaseInstance.updatePosJ2("btn$num")
+        }
+    }
 
 }
 
