@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import androidx.core.content.ContextCompat
 import com.example.parques.databinding.ActivityBoardGameBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -19,7 +18,8 @@ class BoardGameActivity : AppCompatActivity() {
     private lateinit var firebaseInstance: FirebaseInstance
     private var id: Int = 0
     private var par: Boolean = false
-    private val listaBotones: MutableList<Button> = createButtonList()
+    private lateinit var listaBotones: MutableList<Button>
+    private var posicion: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,12 +29,15 @@ class BoardGameActivity : AppCompatActivity() {
         var extra = intent.extras
         id = extra?.getInt("id")!!
 
+        listaBotones = createButtonList()
+
         binding.btnPlayer1Home0.setBackgroundColor(Color.RED)
         binding.btnPlayer2Home0.setBackgroundColor(Color.YELLOW)
 
         firebaseInstance = FirebaseInstance(this)
 
         enabledDice()
+        route()
         initListener()
         title()
     }
@@ -111,7 +114,6 @@ class BoardGameActivity : AppCompatActivity() {
 
         turn() //Habilitamos o deshabilitamos el boton para saber de que jugador es el turno
         start()
-        getPosPlayer(route())
     }
 
     private fun pares(p: partida) {
@@ -151,15 +153,6 @@ class BoardGameActivity : AppCompatActivity() {
         firebaseInstance.updateTurno(prueba.TurnoJugador)
         pares(prueba)
 
-    }
-
-    private fun color() {
-        var botonRojo = Button(this)
-        botonRojo.setBackgroundColor(resources.getColor(R.color.btn_color_player1))
-        val botonR = (botonRojo.background as? ColorDrawable)?.color
-        var botonAmarillo = Button(this)
-        botonAmarillo.setBackgroundColor(resources.getColor(R.color.btn_color_player2))
-        val botonA = (botonAmarillo.background as? ColorDrawable)?.color
     }
 
     private fun getCleanSnapshot(snapshot: DataSnapshot): Pair<String, partida>? {
@@ -240,7 +233,7 @@ class BoardGameActivity : AppCompatActivity() {
         val btn67 = binding.btn67
         val btn68 = binding.btn68
 
-        lista.add(btn1)
+       lista.add(btn1)
         lista.add(btn2)
         lista.add(btn3)
         lista.add(btn4)
@@ -304,7 +297,7 @@ class BoardGameActivity : AppCompatActivity() {
         lista.add(btn62)
         lista.add(btn63)
         lista.add(btn64)
-        lista.add(btn64)
+        lista.add(btn65)
         lista.add(btn66)
         lista.add(btn67)
         lista.add(btn68)
@@ -312,8 +305,7 @@ class BoardGameActivity : AppCompatActivity() {
         return lista
     }
 
-    private fun route (): String{
-        var posicion: String = ""
+    private fun route (){
         val postListener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val data = getCleanSnapshot(snapshot)
@@ -321,8 +313,10 @@ class BoardGameActivity : AppCompatActivity() {
                 if (aux != null) {
                     if (id == 1) {
                         posicion = aux.PosJ1
+                        getPosPlayer()
                     } else if (id == 2) {
                         posicion = aux.PosJ2
+                        getPosPlayer()
                     }
                 }
             }
@@ -332,23 +326,27 @@ class BoardGameActivity : AppCompatActivity() {
             }
         }
         firebaseInstance.setupDatabaseListener(postListener)
-
-        return posicion
     }
-    private fun getPosPlayer(pos: String){
-        val regex = "([a-zA-Z]+)(\\d+)".toRegex()
-        val matchResult = regex.find(pos)
+    private fun getPosPlayer(){
+        if(posicion == "home" && id==1){
+            binding.btnPlayer1Home0.setBackgroundColor(Color.RED)
+        }else if(posicion == "home" && id ==2){
+            binding.btnPlayer2Home0.setBackgroundColor(Color.YELLOW)
+        }else {
 
-        if (matchResult != null){
-            val (letras, numero) = matchResult.destructured
-            val posicion = numero.toInt()
-            if(id == 1){
-                listaBotones[posicion-1].setBackgroundColor(Color.RED)
-            }else if(id == 2){
-                listaBotones[posicion-1].setBackgroundColor(Color.YELLOW)
+            val regex = "([a-zA-Z]+)(\\d+)".toRegex()
+            val matchResult = regex.find(posicion)
+
+            if (matchResult != null){
+                val (letras, numero) = matchResult.destructured
+                val Posicion = numero.toInt()
+                if(id == 1){
+                    listaBotones[Posicion-1].setBackgroundColor(Color.RED)
+                }else if(id == 2){
+                    listaBotones[Posicion-1].setBackgroundColor(Color.YELLOW)
+                }
             }
         }
-
     }
 
 
