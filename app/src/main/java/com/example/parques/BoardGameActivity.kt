@@ -320,11 +320,15 @@ class BoardGameActivity : AppCompatActivity() {
                 var aux = data?.second
                 if (aux != null) {
                     if (id == 1) {
+                        cleanSecondPlayer()//Borramos la posicion anterior del jugador 2
                         posicion = aux.PosJ1
                         posicion2 = aux.PosJ2
+                        printSecondPlayer()
                     } else if (id == 2) {
+                        cleanSecondPlayer()
                         posicion = aux.PosJ2
                         posicion2 = aux.PosJ1
+                        printSecondPlayer()
                     }
                 }
             }
@@ -380,8 +384,39 @@ class BoardGameActivity : AppCompatActivity() {
 
     }
 
-    private fun printSecondPlayer() {//Falta borrar rastro del jugador 2
-        
+    private fun printSecondPlayer(){//Imprimir la posicion del jugador 2
+        val regex = "([a-zA-Z]+)(\\d+)".toRegex()
+        val matchResult = regex.find(posicion2)
+
+        if(matchResult!=null){
+            val (letras, numero) = matchResult.destructured
+            var Pos2 = numero.toInt()
+            if(posicion2 != "" && posicion2 != "home"){
+                if(id == 1){
+                    listaBotones[Pos2-1].setBackgroundColor(Color.YELLOW)
+                }else if(id == 2){
+                    listaBotones[Pos2-1].setBackgroundColor(Color.RED)
+                }
+            }
+        }
+    }
+
+    private fun cleanSecondPlayer() {//Falta borrar rastro del jugador 2
+        val regex = "([a-zA-Z]+)(\\d+)".toRegex()
+        val matchResult = regex.find(posicion2)
+
+        if(matchResult!=null){
+            val (letras, numero) = matchResult.destructured
+            val Pos2 = numero.toInt()
+            if(posicion2 != "" && posicion2 != "home"){
+                if(id == 1){
+                    binding.btnPlayer2Home0.setBackgroundColor(Color.TRANSPARENT)
+                }else if(id == 2){
+                    binding.btnPlayer1Home0.setBackgroundColor(Color.TRANSPARENT)
+                }
+                listaBotones[Pos2-1].setBackgroundColor(Color.TRANSPARENT)
+            }
+        }
     }
 
     private fun clearRoute(P: Int) {
