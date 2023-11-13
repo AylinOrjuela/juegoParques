@@ -20,6 +20,7 @@ class BoardGameActivity : AppCompatActivity() {
     private var par: Boolean = false
     private lateinit var listaBotones: MutableList<Button>
     private var posicion: String = ""
+    private var posicion2: String = ""
     private var inicio: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -117,8 +118,8 @@ class BoardGameActivity : AppCompatActivity() {
         moveToken(recorrido)
     }
 
-    private fun pares(p: partida) {
-        if (par == true && id == 1 || par == true && id == 2) {
+    private fun pares() {
+        if (par == true && id == 1 && posicion == "home" || par == true && id == 2 && posicion == "home") {
             if (id == 1) {
                 binding.btn58.setBackgroundColor(resources.getColor(R.color.btn_color_player1))
                 inicio = true
@@ -153,9 +154,13 @@ class BoardGameActivity : AppCompatActivity() {
             prueba.TurnoJugador = true
         }
 
-        firebaseInstance.updateTurno(prueba.TurnoJugador)
-        pares(prueba)
+        pares()
 
+        if (par) {
+            firebaseInstance.updateTurno(!prueba.TurnoJugador)
+        } else {
+            firebaseInstance.updateTurno(prueba.TurnoJugador)
+        }
     }
 
     private fun getCleanSnapshot(snapshot: DataSnapshot): Pair<String, partida>? {
@@ -316,10 +321,10 @@ class BoardGameActivity : AppCompatActivity() {
                 if (aux != null) {
                     if (id == 1) {
                         posicion = aux.PosJ1
-                        getPosPlayer()
+                        posicion2 = aux.PosJ2
                     } else if (id == 2) {
                         posicion = aux.PosJ2
-                        getPosPlayer()
+                        posicion2 = aux.PosJ1
                     }
                 }
             }
@@ -331,33 +336,65 @@ class BoardGameActivity : AppCompatActivity() {
         firebaseInstance.setupDatabaseListener(postListener)
     }
 
-    private fun getPosPlayer() {
-        if (posicion == "home" && id == 1) {
-
-        } else if (posicion == "home" && id == 2) {
-
-        } else {
-
-            val regex = "([a-zA-Z]+)(\\d+)".toRegex()
-            val matchResult = regex.find(posicion)
-
-            if (matchResult != null) {
-                val (letras, numero) = matchResult.destructured
-                val Posicion = numero.toInt()
-                if (id == 1) {
-                    listaBotones[Posicion - 1].setBackgroundColor(Color.RED)
-                } else if (id == 2) {
-                    listaBotones[Posicion - 1].setBackgroundColor(Color.YELLOW)
-                }
+    private fun home() {
+        if (posicion == "home") {
+            if (id == 1 && inicio) {
+                firebaseInstance.updatePosJ1("btn58")
+            } else if (id == 2 && inicio) {
+                firebaseInstance.updatePosJ2("btn24")
             }
         }
     }
 
-    private fun moveToken(num: Int){//recorrido
-        if (id == 1 && inicio == true){
-            firebaseInstance.updatePosJ1("btn$num")
-        }else if(id == 2 && inicio == true){
-            firebaseInstance.updatePosJ2("btn$num")
+    private fun moveToken(num: Int) {//recorrido
+        val regex = "([a-zA-Z]+)(\\d+)".toRegex()
+        val matchResult = regex.find(posicion)
+
+        var clear: Int
+
+        home()
+
+        if (matchResult != null) {
+            val (letras, numero) = matchResult.destructured
+            var Posicion = numero.toInt()
+            if (posicion != "home") { //Recorrido para jugador 1
+                if (id == 1) {
+                    clear = Posicion
+                    Posicion += num
+                    Posicion = validatePosition(Posicion)
+                    listaBotones[Posicion - 1].setBackgroundColor(Color.RED)
+                    firebaseInstance.updatePosJ1("btn$Posicion")
+                    clearRoute(clear)
+                } else if (id == 2) {
+                    clear = Posicion
+                    Posicion += num
+                    Posicion = validatePosition(Posicion)
+                    listaBotones[Posicion - 1].setBackgroundColor(Color.YELLOW)
+                    firebaseInstance.updatePosJ2("btn$Posicion")
+                    clearRoute(clear)
+                }
+            }
+        }
+
+        //printSecondPlayer()
+
+    }
+
+    private fun printSecondPlayer() {//Falta borrar rastro del jugador 2
+        
+    }
+
+    private fun clearRoute(P: Int) {
+        listaBotones[P - 1].setBackgroundColor(Color.TRANSPARENT)
+    }
+
+    private fun validatePosition(P: Int): Int {
+        var POS: Int
+        if (P > 68 && P != null) {
+            POS = P - 68
+            return POS
+        } else {
+            return P
         }
     }
 
