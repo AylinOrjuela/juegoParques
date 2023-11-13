@@ -22,6 +22,8 @@ class BoardGameActivity : AppCompatActivity() {
     private var posicion: String = ""
     private var posicion2: String = ""
     private var inicio: Boolean = false
+    private var igual: Boolean = false
+    private var turno: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -149,15 +151,18 @@ class BoardGameActivity : AppCompatActivity() {
 
         if (id == 1 && prueba.TurnoJugador == true) {
             prueba.TurnoJugador = false
+            turno = prueba.TurnoJugador
         }
         if (id == 2 && prueba.TurnoJugador == false) {
             prueba.TurnoJugador = true
+            turno = prueba.TurnoJugador
         }
 
         pares()
 
         if (par) {
             firebaseInstance.updateTurno(!prueba.TurnoJugador)
+
         } else {
             firebaseInstance.updateTurno(prueba.TurnoJugador)
         }
@@ -324,11 +329,15 @@ class BoardGameActivity : AppCompatActivity() {
                         posicion = aux.PosJ1
                         posicion2 = aux.PosJ2
                         printSecondPlayer()
+                        dismatch()
+                        equalsPositions()
                     } else if (id == 2) {
                         cleanSecondPlayer()
                         posicion = aux.PosJ2
                         posicion2 = aux.PosJ1
                         printSecondPlayer()
+                        dismatch()
+                        equalsPositions()
                     }
                 }
             }
@@ -379,24 +388,56 @@ class BoardGameActivity : AppCompatActivity() {
                 }
             }
         }
-
-        //printSecondPlayer()
-
     }
 
-    private fun printSecondPlayer(){//Imprimir la posicion del jugador 2
+    private fun printSecondPlayer() {//Imprimir la posicion del jugador 2
         val regex = "([a-zA-Z]+)(\\d+)".toRegex()
         val matchResult = regex.find(posicion2)
 
-        if(matchResult!=null){
+        if (matchResult != null) {
             val (letras, numero) = matchResult.destructured
             var Pos2 = numero.toInt()
-            if(posicion2 != "" && posicion2 != "home"){
-                if(id == 1){
-                    listaBotones[Pos2-1].setBackgroundColor(Color.YELLOW)
-                }else if(id == 2){
-                    listaBotones[Pos2-1].setBackgroundColor(Color.RED)
+            if (posicion2 != "" && posicion2 != "home") {
+                if (id == 1) {
+                    listaBotones[Pos2 - 1].setBackgroundColor(Color.YELLOW)
+                } else if (id == 2) {
+                    listaBotones[Pos2 - 1].setBackgroundColor(Color.RED)
                 }
+            }
+        }
+    }
+
+    private fun equalsPositions() {
+        if (posicion == posicion2) {
+            val regex = "([a-zA-Z]+)(\\d+)".toRegex()
+            val matchResult = regex.find(posicion) //Posicion del jugador 1
+            if (matchResult != null) {//Player principal
+                val (letras, numero) = matchResult.destructured
+                val Pos = numero.toInt()
+                listaBotones[Pos - 1].setBackgroundColor(Color.GREEN)
+            }
+            igual = true
+        }
+    }
+
+    private fun dismatch() {
+        if (igual && id == 1 && turno && (posicion != posicion2)) {
+            val regex = "([a-zA-Z]+)(\\d+)".toRegex()
+            val matchResult = regex.find(posicion)
+            if (matchResult != null) {
+                val (letras, numero) = matchResult.destructured
+                val Pos = numero.toInt()
+                listaBotones[Pos - 1].setBackgroundColor(Color.RED)
+                igual = false
+            }
+        }else if(igual && id == 2 && !turno && (posicion != posicion2)){
+            val regex = "([a-zA-Z]+)(\\d+)".toRegex()
+            val matchResult = regex.find(posicion)
+            if (matchResult != null) {
+                val (letras, numero) = matchResult.destructured
+                val Pos = numero.toInt()
+                listaBotones[Pos - 1].setBackgroundColor(Color.YELLOW)
+                igual = false
             }
         }
     }
@@ -405,16 +446,16 @@ class BoardGameActivity : AppCompatActivity() {
         val regex = "([a-zA-Z]+)(\\d+)".toRegex()
         val matchResult = regex.find(posicion2)
 
-        if(matchResult!=null){
+        if (matchResult != null) {
             val (letras, numero) = matchResult.destructured
             val Pos2 = numero.toInt()
-            if(posicion2 != "" && posicion2 != "home"){
-                if(id == 1){
+            if (posicion2 != "" && posicion2 != "home") {
+                if (id == 1) {
                     binding.btnPlayer2Home0.setBackgroundColor(Color.TRANSPARENT)
-                }else if(id == 2){
+                } else if (id == 2) {
                     binding.btnPlayer1Home0.setBackgroundColor(Color.TRANSPARENT)
                 }
-                listaBotones[Pos2-1].setBackgroundColor(Color.TRANSPARENT)
+                listaBotones[Pos2 - 1].setBackgroundColor(Color.TRANSPARENT)
             }
         }
     }
