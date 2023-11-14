@@ -24,6 +24,7 @@ class BoardGameActivity : AppCompatActivity() {
     private var inicio: Boolean = false
     private var igual: Boolean = false
     private var turno: Boolean = true
+    private var final: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -328,6 +329,7 @@ class BoardGameActivity : AppCompatActivity() {
                         cleanSecondPlayer()//Borramos la posicion anterior del jugador 2
                         posicion = aux.PosJ1
                         posicion2 = aux.PosJ2
+                        finalJourney()
                         printSecondPlayer()
                         dismatch()
                         equalsPositions()
@@ -335,6 +337,7 @@ class BoardGameActivity : AppCompatActivity() {
                         cleanSecondPlayer()
                         posicion = aux.PosJ2
                         posicion2 = aux.PosJ1
+                        finalJourney()
                         printSecondPlayer()
                         dismatch()
                         equalsPositions()
@@ -466,12 +469,81 @@ class BoardGameActivity : AppCompatActivity() {
 
     private fun validatePosition(P: Int): Int {
         var POS: Int
-        if (P > 68 && P != null) {
+        if((final == true && id == 1) || (final == true && id == 2)){
+            return finalPosicion(P)
+        } else if (P > 68 && P != null) {
             POS = P - 68
             return POS
         } else {
             return P
         }
+    }
+
+    private fun finalJourney(){
+        val regex = "([a-zA-Z]+)(\\d+)".toRegex()
+        val matchResult = regex.find(posicion)
+        if(id == 1 && matchResult != null){
+            val (letras, numero) = matchResult.destructured
+            val Pos = numero.toInt()
+            if(Pos in 41..53){
+                final = true
+            }
+        }else if(id == 2 && matchResult != null){
+            val (letras, numero) = matchResult.destructured
+            val Pos = numero.toInt()
+            if(Pos in 7..19){
+                final = true
+            }
+        }
+    }
+
+    private fun finalPosicion(num: Int):Int{
+        val regex = "([a-zA-Z]+)(\\d+)".toRegex()
+        val matchResult = regex.find(posicion)
+        if(final == true && id == 1 && matchResult != null){
+            val (letras, numero) = matchResult.destructured
+            var Pos = numero.toInt()
+            if(Pos > 59){
+                Pos -= 59
+                return when (Pos) {
+                    1 -> 100
+                    2 -> 101
+                    3 -> 102
+                    4 -> 103
+                    5 -> 104
+                    6 -> 105
+                    7 -> 106
+                    8 -> 107
+                    else -> 107
+                }
+
+            }else{
+                return num
+            }
+        }else if(final == true && id == 2 && matchResult != null){
+            val (letras, numero) = matchResult.destructured
+            var Pos = numero.toInt()
+            if(Pos > 59){
+                Pos -= 59
+                return when (Pos) {
+                    1 -> 108
+                    2 -> 109
+                    3 -> 110
+                    4 -> 111
+                    5 -> 112
+                    6 -> 113
+                    7 -> 114
+                    8 -> 115
+                    else -> 115
+                }
+
+            }else{
+                return num
+            }
+        }else{
+            return num
+        }
+
     }
 
 }

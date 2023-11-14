@@ -492,7 +492,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn1FinalPlayer1"
+            android:id="@+id/btn100"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -531,7 +531,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn2FinalPlayer1"
+            android:id="@+id/btn101"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -570,7 +570,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn3FinalPlayer1"
+            android:id="@+id/btn102"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -609,7 +609,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn4FinalPlayer1"
+            android:id="@+id/btn103"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -648,7 +648,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn5FinalPlayer1"
+            android:id="@+id/btn104"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -687,7 +687,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn6FinalPlayer1"
+            android:id="@+id/btn105"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -726,7 +726,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn7FinalPlayer1"
+            android:id="@+id/btn106"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -752,7 +752,7 @@
             app:layout_constraintVertical_bias="0.601" />
 
         <Button
-            android:id="@+id/btn8FinalPlayer1"
+            android:id="@+id/btn107"
             android:layout_width="25dp"
             android:layout_height="30dp"
             android:backgroundTint="@android:color/transparent"
@@ -818,7 +818,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn1FinalPlayer2"
+            android:id="@+id/btn108"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -857,7 +857,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn2FinalPlayer2"
+            android:id="@+id/btn109"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -896,7 +896,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn3FinalPlayer2"
+            android:id="@+id/btn110"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -935,7 +935,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn4FinalPlayer2"
+            android:id="@+id/btn111"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -974,7 +974,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn5FinalPlayer2"
+            android:id="@+id/btn112"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -1013,7 +1013,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn6FinalPlayer2"
+            android:id="@+id/btn113"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -1052,7 +1052,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn7FinalPlayer2"
+            android:id="@+id/btn114"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -1078,7 +1078,7 @@
             app:layout_constraintVertical_bias="0.601" />
 
         <Button
-            android:id="@+id/btn8FinalPlayer2"
+            android:id="@+id/btn115"
             android:layout_width="25dp"
             android:layout_height="30dp"
             android:backgroundTint="@android:color/transparent"
