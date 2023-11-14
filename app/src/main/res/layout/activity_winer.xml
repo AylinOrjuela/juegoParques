@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dados"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".WinerActivity">
+
+    <TextView
+        android:id="@+id/tvWinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:fontFamily="@font/pixelifysans_bold"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        tools:text="Ha Ganado el Jugador 2" />
+
+    <Button
+        android:id="@+id/btnMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/btn_background"
+        android:text="@string/btn_main" />
+
+
+</LinearLayout>

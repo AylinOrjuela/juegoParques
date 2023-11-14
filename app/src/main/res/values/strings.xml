@@ -23,9 +23,9 @@
         3)Para poder salir de la base es necesario sacar un par. \n
         4)Al tirar los dados se movera la ficha la cantidad que estos marcan. \n
         5)Si la ficha esta en la base, no se podra mover hasta liberarla. \n
-        6)Si un jugador cae en tu misma casilla, seras devuelto a tu base. A menos que estes en una casilla segura. \n
-        7)Las casillas seguras tienen un color diferente a las casillas convencionales. \n
-        8)Cada jugador tiene su meta, marcada con su color, el que llegue primero a esta ganará. \n
+        6)Si un jugador cae en tu misma casilla, el color de la celda cambiara a verde. \n
+        7)Si un jugador saca par, repetira su turno \n
+        8)Cada jugador tiene su meta marcada con su color, el que llegue primero a la casilla final ganará. \n
     </string>
 
 </resources>

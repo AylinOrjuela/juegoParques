@@ -246,6 +246,23 @@ class BoardGameActivity : AppCompatActivity() {
         val btn66 = binding.btn66
         val btn67 = binding.btn67
         val btn68 = binding.btn68
+        val btn69 = binding.btn69
+        val btn70 = binding.btn70
+        val btn71 = binding.btn71
+        val btn72 = binding.btn72
+        val btn73 = binding.btn73
+        val btn74 = binding.btn74
+        val btn75 = binding.btn75
+        val btn76 = binding.btn76
+        val btn77 = binding.btn77
+        val btn78 = binding.btn78
+        val btn79 = binding.btn79
+        val btn80 = binding.btn80
+        val btn81 = binding.btn81
+        val btn82 = binding.btn82
+        val btn83 = binding.btn83
+        val btn84 = binding.btn84
+
 
         lista.add(btn1)
         lista.add(btn2)
@@ -315,6 +332,22 @@ class BoardGameActivity : AppCompatActivity() {
         lista.add(btn66)
         lista.add(btn67)
         lista.add(btn68)
+        lista.add(btn69)
+        lista.add(btn70)
+        lista.add(btn71)
+        lista.add(btn72)
+        lista.add(btn73)
+        lista.add(btn74)
+        lista.add(btn75)
+        lista.add(btn76)
+        lista.add(btn77)
+        lista.add(btn78)
+        lista.add(btn79)
+        lista.add(btn80)
+        lista.add(btn81)
+        lista.add(btn82)
+        lista.add(btn83)
+        lista.add(btn84)
 
         return lista
     }
@@ -381,6 +414,7 @@ class BoardGameActivity : AppCompatActivity() {
                     listaBotones[Posicion - 1].setBackgroundColor(Color.RED)
                     firebaseInstance.updatePosJ1("btn$Posicion")
                     clearRoute(clear)
+                    winner(Posicion)
                 } else if (id == 2) {
                     clear = Posicion
                     Posicion += num
@@ -388,6 +422,7 @@ class BoardGameActivity : AppCompatActivity() {
                     listaBotones[Posicion - 1].setBackgroundColor(Color.YELLOW)
                     firebaseInstance.updatePosJ2("btn$Posicion")
                     clearRoute(clear)
+                    winner(Posicion)
                 }
             }
         }
@@ -407,6 +442,17 @@ class BoardGameActivity : AppCompatActivity() {
                     listaBotones[Pos2 - 1].setBackgroundColor(Color.RED)
                 }
             }
+
+            if(id == 1 && Pos2 == 84){//Nos gano el jugador 2
+                val intent = Intent(this,WinerActivity::class.java)
+                intent.putExtra("idP",2)
+                startActivity(intent)
+            }else if(id == 2 && Pos2 == 76){//Nos gano el jugador 1
+                val intent = Intent(this,WinerActivity::class.java)
+                intent.putExtra("idP",1)
+                startActivity(intent)
+            }
+
         }
     }
 
@@ -479,6 +525,18 @@ class BoardGameActivity : AppCompatActivity() {
         }
     }
 
+    private fun winner(num:Int){
+        if(id == 1 && num == 76){
+            val intent = Intent(this,WinerActivity::class.java)
+            intent.putExtra("idP",id)
+            startActivity(intent)
+        }else if (id == 2 && num == 84){
+            val intent = Intent(this,WinerActivity::class.java)
+            intent.putExtra("idP",id)
+            startActivity(intent)
+        }
+    }
+
     private fun finalJourney(){
         val regex = "([a-zA-Z]+)(\\d+)".toRegex()
         val matchResult = regex.find(posicion)
@@ -498,52 +556,45 @@ class BoardGameActivity : AppCompatActivity() {
     }
 
     private fun finalPosicion(num: Int):Int{
-        val regex = "([a-zA-Z]+)(\\d+)".toRegex()
-        val matchResult = regex.find(posicion)
-        if(final == true && id == 1 && matchResult != null){
-            val (letras, numero) = matchResult.destructured
-            var Pos = numero.toInt()
-            if(Pos > 59){
-                Pos -= 59
+        var Pos = num
+        if(final == true && id == 1){
+            if(Pos > 53){
+                Pos -= 53
                 return when (Pos) {
-                    1 -> 100
-                    2 -> 101
-                    3 -> 102
-                    4 -> 103
-                    5 -> 104
-                    6 -> 105
-                    7 -> 106
-                    8 -> 107
-                    else -> 107
+                    1 -> 69
+                    2 -> 70
+                    3 -> 71
+                    4 -> 72
+                    5 -> 73
+                    6 -> 74
+                    7 -> 75
+                    8 -> 76
+                    else -> 76
                 }
 
             }else{
                 return num
             }
-        }else if(final == true && id == 2 && matchResult != null){
-            val (letras, numero) = matchResult.destructured
-            var Pos = numero.toInt()
-            if(Pos > 59){
-                Pos -= 59
+        }else if(final == true && id == 2){
+            if(Pos > 19){
+                Pos -= 19
                 return when (Pos) {
-                    1 -> 108
-                    2 -> 109
-                    3 -> 110
-                    4 -> 111
-                    5 -> 112
-                    6 -> 113
-                    7 -> 114
-                    8 -> 115
-                    else -> 115
+                    1 -> 77
+                    2 -> 78
+                    3 -> 79
+                    4 -> 80
+                    5 -> 81
+                    6 -> 82
+                    7 -> 83
+                    8 -> 84
+                    else -> 84
                 }
-
             }else{
                 return num
             }
         }else{
             return num
         }
-
     }
 
 }

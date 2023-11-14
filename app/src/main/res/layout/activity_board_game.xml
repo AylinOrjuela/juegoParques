@@ -492,7 +492,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn100"
+            android:id="@+id/btn69"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -531,7 +531,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn101"
+            android:id="@+id/btn70"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -570,7 +570,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn102"
+            android:id="@+id/btn71"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -609,7 +609,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn103"
+            android:id="@+id/btn72"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -648,7 +648,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn104"
+            android:id="@+id/btn73"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -687,7 +687,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn105"
+            android:id="@+id/btn74"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -726,7 +726,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn106"
+            android:id="@+id/btn75"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -752,7 +752,7 @@
             app:layout_constraintVertical_bias="0.601" />
 
         <Button
-            android:id="@+id/btn107"
+            android:id="@+id/btn76"
             android:layout_width="25dp"
             android:layout_height="30dp"
             android:backgroundTint="@android:color/transparent"
@@ -818,7 +818,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn108"
+            android:id="@+id/btn77"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -857,7 +857,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn109"
+            android:id="@+id/btn78"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -896,7 +896,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn110"
+            android:id="@+id/btn79"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -935,7 +935,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn111"
+            android:id="@+id/btn80"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -974,7 +974,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn112"
+            android:id="@+id/btn81"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -1013,7 +1013,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn113"
+            android:id="@+id/btn82"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -1052,7 +1052,7 @@
             app:layout_constraintVertical_bias="0.401" />
 
         <Button
-            android:id="@+id/btn114"
+            android:id="@+id/btn83"
             android:layout_width="15dp"
             android:layout_height="20dp"
             android:backgroundTint="@android:color/transparent"
@@ -1078,7 +1078,7 @@
             app:layout_constraintVertical_bias="0.601" />
 
         <Button
-            android:id="@+id/btn115"
+            android:id="@+id/btn84"
             android:layout_width="25dp"
             android:layout_height="30dp"
             android:backgroundTint="@android:color/transparent"
